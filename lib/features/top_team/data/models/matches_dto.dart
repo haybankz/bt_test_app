@@ -129,8 +129,8 @@ class Match {
   dynamic group;
   DateTime? lastUpdated;
   Score? score;
-  Area? homeTeam;
-  Area? awayTeam;
+  Team? homeTeam;
+  Team? awayTeam;
   List<Referee>? referees;
 
   factory Match.fromJson(Map<String, dynamic> json) => Match(
@@ -143,8 +143,8 @@ class Match {
         group: json["group"],
         lastUpdated: DateTime.parse(json["lastUpdated"]),
         score: Score.fromJson(json["score"]),
-        homeTeam: Area.fromJson(json["homeTeam"]),
-        awayTeam: Area.fromJson(json["awayTeam"]),
+        homeTeam: Team.fromJson(json["homeTeam"]),
+        awayTeam: Team.fromJson(json["awayTeam"]),
         referees: List<Referee>.from(
             json["referees"].map((x) => Referee.fromJson(x))),
       );
@@ -163,6 +163,26 @@ class Match {
         "awayTeam": awayTeam?.toJson(),
         "referees":
             referees != null ? referees!.map((x) => x.toJson()).toList() : null,
+      };
+}
+
+class Team {
+  Team({
+    this.id,
+    this.name,
+  });
+
+  int? id;
+  String? name;
+
+  factory Team.fromJson(Map<String, dynamic> json) => Team(
+        id: json["id"],
+        name: json["name"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "name": name,
       };
 }
 
@@ -342,7 +362,7 @@ class aa {
         m.matches!.where((match) => match.status == Status.FINISHED).toList();
     x.sort((a, b) => a.utcDate!.compareTo(b.utcDate!));
     var y = x.take(30).toList();
-    var teamsMap = <Area, int>{};
+    var teamsMap = <Team, int>{};
     for (final match in y) {
       final winner = match.score!.winner == Winner.HOME_TEAM
           ? match.homeTeam
@@ -354,7 +374,7 @@ class aa {
       }
 
       int thevalue = 0;
-      Area thekey = Area();
+      Team thekey = Team();
 
       teamsMap.forEach((k, v) {
         if (v > thevalue) {

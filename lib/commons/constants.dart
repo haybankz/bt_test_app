@@ -1,9 +1,8 @@
-import 'dart:io';
-
 class Constants {
-  static String kBaseUrl =
-      Platform.isIOS ? "http://localhost:8000/api" : 'http://10.0.2.2:8000/api';
+  static String kBaseUrl = "http://api.football-data.org/v2";
 
   static String connectionError = "Error communicating to server";
   static String noInternet = "No Internet Connection";
+  static String token = "2c482d83395747f49815613febcae2d4";
+  static int competitionId = 2019; // competition id for Serie A
 }

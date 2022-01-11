@@ -1,13 +1,15 @@
 class NetworkResponse<T> {
   T? data;
-  Status status;
+  State state;
   String? message;
 
-  NetworkResponse.success(this.data) : status = Status.success;
+  NetworkResponse.success(this.data) : state = State.success;
 
-  NetworkResponse.error(this.message) : status = Status.error;
+  NetworkResponse.error(this.message) : state = State.error;
 
-  NetworkResponse.loading(this.message) : status = Status.loading;
+  NetworkResponse.loading(this.message) : state = State.loading;
+
+  NetworkResponse.initial() : state = State.initial;
 }
 
-enum Status { success, error, loading }
+enum State { initial, success, error, loading }
