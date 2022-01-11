@@ -1,5 +1,5 @@
 class Constants {
-  static String kBaseUrl = "http://api.football-data.org/v2";
+  static String kBaseUrl = "api.football-data.org";
 
   static String connectionError = "Error communicating to server";
   static String noInternet = "No Internet Connection";

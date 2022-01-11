@@ -1,13 +1,11 @@
 import 'package:bt_test_app/commons/export.dart';
 import 'package:bt_test_app/features/top_team/data/export.dart';
-import 'package:bt_test_app/features/top_team/domain/export.dart';
 
 abstract class MatchRepository {
-  /// Fetches matches played in a competition [params.competitionId]
-  /// and start date[params.dateFrom] and end date [params.dateTo]
-  /// accepts [FetchMatchesParam] [params]
+  /// Fetches matches played in a competition
+  /// accepts [competitionId] id of the competition
   /// returns [NetworkResponse] of [MatchesDto]
-  Future<NetworkResponse<MatchesDto>> fetchMatches(FetchMatchesParam params);
+  Future<NetworkResponse<MatchesDto>> fetchMatches(int competitionId);
 }
 
 class MatchRepositoryImpl implements MatchRepository {
@@ -18,11 +16,11 @@ class MatchRepositoryImpl implements MatchRepository {
       {required this.networkInfo, required this.matchRemoteDataSource});
 
   @override
-  Future<NetworkResponse<MatchesDto>> fetchMatches(
-      FetchMatchesParam params) async {
+  Future<NetworkResponse<MatchesDto>> fetchMatches(int competitionId) async {
     if (await networkInfo.isConnected) {
       try {
-        final response = await matchRemoteDataSource.fetchMatches(params);
+        final response =
+            await matchRemoteDataSource.fetchMatches(competitionId);
         return NetworkResponse<MatchesDto>.success(response);
       } catch (e) {
         return NetworkResponse<MatchesDto>.error(e.toString());

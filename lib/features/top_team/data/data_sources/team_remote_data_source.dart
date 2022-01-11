@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
@@ -19,8 +20,10 @@ class TeamRemoteDataSourceImpl implements TeamRemoteDataSource {
 
   @override
   Future<TeamDto> getTeam(int teamId) {
-    final teamUrl =
-        Uri(host: Constants.kBaseUrl, pathSegments: ["teams", "$teamId"]);
+    final teamUrl = Uri(
+        scheme: "http",
+        host: Constants.kBaseUrl,
+        pathSegments: ["v2", "teams", "$teamId"]);
 
     log("teamUrl: ${teamUrl.toString()}");
 
@@ -29,7 +32,7 @@ class TeamRemoteDataSourceImpl implements TeamRemoteDataSource {
       headers: {'X-Auth-Token': Constants.token},
     ).then((response) {
       if (response.statusCode == HttpStatus.ok) {
-        return TeamDto.fromJson(response.body);
+        return TeamDto.fromJson(jsonDecode(response.body));
       }
 
       throw ServerException("Error occurred: ${response.reasonPhrase}!");

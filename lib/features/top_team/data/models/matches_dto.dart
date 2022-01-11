@@ -4,10 +4,7 @@
 
 import 'dart:convert';
 
-MatchesDto matchesDtoFromJson(String str) =>
-    MatchesDto.fromJson(json.decode(str));
-
-String matchesDtoToJson(MatchesDto data) => json.encode(data.toJson());
+import 'package:equatable/equatable.dart';
 
 class MatchesDto {
   MatchesDto({
@@ -104,7 +101,7 @@ class Filters {
   Map<String, dynamic> toJson() => {};
 }
 
-class Match {
+class Match extends Equatable {
   Match({
     this.id,
     this.season,
@@ -123,7 +120,7 @@ class Match {
   int? id;
   Season? season;
   DateTime? utcDate;
-  Status? status;
+  MatchStatus? status;
   int? matchday;
   Stage? stage;
   dynamic group;
@@ -164,9 +161,12 @@ class Match {
         "referees":
             referees != null ? referees!.map((x) => x.toJson()).toList() : null,
       };
+
+  @override
+  List<Object?> get props => [id, matchday, utcDate];
 }
 
-class Team {
+class Team extends Equatable {
   Team({
     this.id,
     this.name,
@@ -184,6 +184,10 @@ class Team {
         "id": id,
         "name": name,
       };
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [id, name];
 }
 
 class Referee {
@@ -243,7 +247,7 @@ class Score {
   });
 
   Winner? winner;
-  Duration? duration;
+  MatchDuration? duration;
   TimeScore? fullTime;
   TimeScore? halfTime;
   TimeScore? extraTime;
@@ -269,9 +273,9 @@ class Score {
       };
 }
 
-enum Duration { REGULAR }
+enum MatchDuration { REGULAR }
 
-final durationValues = EnumValues({"REGULAR": Duration.REGULAR});
+final durationValues = EnumValues({"REGULAR": MatchDuration.REGULAR});
 
 class TimeScore {
   TimeScore({
@@ -279,8 +283,8 @@ class TimeScore {
     required this.awayTeam,
   });
 
-  int homeTeam;
-  int awayTeam;
+  int? homeTeam;
+  int? awayTeam;
 
   factory TimeScore.fromJson(Map<String, dynamic> json) => TimeScore(
         homeTeam: json["homeTeam"],
@@ -309,7 +313,7 @@ class Season {
     this.currentMatchday,
   });
 
-  int id;
+  int? id;
   DateTime? startDate;
   DateTime? endDate;
   int? currentMatchday;
@@ -335,10 +339,13 @@ enum Stage { REGULAR_SEASON }
 
 final stageValues = EnumValues({"REGULAR_SEASON": Stage.REGULAR_SEASON});
 
-enum Status { FINISHED, POSTPONED }
+enum MatchStatus { FINISHED, POSTPONED, SCHEDULED }
 
-final statusValues =
-    EnumValues({"FINISHED": Status.FINISHED, "POSTPONED": Status.POSTPONED});
+final statusValues = EnumValues({
+  "FINISHED": MatchStatus.FINISHED,
+  "POSTPONED": MatchStatus.POSTPONED,
+  "SCHEDULED": MatchStatus.SCHEDULED
+});
 
 class EnumValues<T> {
   Map<String, T> map;
@@ -355,35 +362,3 @@ class EnumValues<T> {
   }
 }
 
-class aa {
-  var m = matchesDtoFromJson("");
-  void bb() {
-    var x =
-        m.matches!.where((match) => match.status == Status.FINISHED).toList();
-    x.sort((a, b) => a.utcDate!.compareTo(b.utcDate!));
-    var y = x.take(30).toList();
-    var teamsMap = <Team, int>{};
-    for (final match in y) {
-      final winner = match.score!.winner == Winner.HOME_TEAM
-          ? match.homeTeam
-          : match.score!.winner == Winner.AWAY_TEAM
-              ? match.awayTeam
-              : null;
-      if (winner != null) {
-        teamsMap.update(winner, (value) => value + 1, ifAbsent: () => 1);
-      }
-
-      int thevalue = 0;
-      Team thekey = Team();
-
-      teamsMap.forEach((k, v) {
-        if (v > thevalue) {
-          thevalue = v;
-          thekey = k;
-        }
-      });
-
-      print(thekey.toJson());
-    }
-  }
-}
