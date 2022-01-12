@@ -32,6 +32,7 @@ class TeamRemoteDataSourceImpl implements TeamRemoteDataSource {
       headers: {'X-Auth-Token': Constants.token},
     ).then((response) {
       if (response.statusCode == HttpStatus.ok) {
+        print(response.body);
         return TeamDto.fromJson(jsonDecode(response.body));
       }
 

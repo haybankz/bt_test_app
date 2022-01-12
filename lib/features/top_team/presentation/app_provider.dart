@@ -11,20 +11,17 @@ class AppProvider extends ChangeNotifier {
 
   AppProvider(this._fetchMatchesUseCase, this._getTeamUseCase);
 
-  List<Team> topTeams = [];
-
   NetworkResponse<MatchesDto> matchesResponse =
       NetworkResponse<MatchesDto>.success(null);
 
   NetworkResponse<TeamDto> teamResponse =
       NetworkResponse<TeamDto>.success(null);
 
-  Future<void> loadTopTeams() async {
+  Future<void> loadTopTeam() async {
     await fetchMatches();
 
     if (matchesResponse.status == Status.error ||
         matchesResponse.data == null) {
-      notifyListeners();
       return;
     }
     var matches = matchesResponse.data!.matches ?? <Match>[];
@@ -49,8 +46,11 @@ class AppProvider extends ChangeNotifier {
 
     final Map<Team, int> teamWinnings = getTeamWinnings(matches);
 
-    topTeams = getTeamsWithMostWins(teamWinnings);
-    notifyListeners();
+    final topTeam = getTeamWithMostWins(teamWinnings);
+    if (topTeam == null) {
+      return;
+    }
+    getTeamDetails(topTeam.id!);
   }
 
   Future<void> fetchMatches() async {
@@ -59,9 +59,10 @@ class AppProvider extends ChangeNotifier {
     notifyListeners();
 
     matchesResponse = await _fetchMatchesUseCase.call(Constants.competitionId);
+    notifyListeners();
   }
 
-  Future<void> fetchTeam(int teamId) async {
+  Future<void> getTeamDetails(int teamId) async {
     teamResponse = NetworkResponse<TeamDto>.loading("Getting teams details");
     notifyListeners();
 
@@ -131,22 +132,18 @@ class AppProvider extends ChangeNotifier {
     }
   }
 
-  List<Team> getTeamsWithMostWins(Map<Team, int> teamWins) {
+  Team? getTeamWithMostWins(Map<Team, int> teamWins) {
     int highestWinIndicator = 0;
-    List<Team> teams = [];
+    Team? topTeam;
 
     teamWins.forEach((team, noOfWins) {
-      //if the team no of wins is greater than the current highest win, clear the list and add the current team
+      //if the team no of wins is greater than the current highest win, set team as top team
       if (noOfWins > highestWinIndicator) {
         highestWinIndicator = noOfWins;
-        teams.clear();
-        teams.add(team);
-        //if team's no of wins is equal to current highest win, add team to list
-      } else if (noOfWins == highestWinIndicator) {
-        teams.add(team);
+        topTeam = team;
       }
     });
 
-    return teams;
+    return topTeam;
   }
 }

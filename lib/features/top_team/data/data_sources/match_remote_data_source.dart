@@ -24,7 +24,6 @@ class MatchRemoteDataSourceImpl implements MatchRemoteDataSource {
       scheme: "http",
       host: Constants.kBaseUrl,
       pathSegments: ["v2", "competitions", "$competitionId", "matches"],
-      queryParameters: {"dateFrom": "2020-01-01", "dateTo": "2020-06-09"},
     );
 
     log("matchesUrl: ${matchesUrl.toString()}");
