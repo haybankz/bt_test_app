@@ -1,0 +1,315 @@
+{
+  "id": 99,
+  "area": {
+    "id": 2114,
+    "name": "Italy"
+  },
+  "activeCompetitions": [
+    {
+      "id": 2019,
+      "area": {
+        "id": 2114,
+        "name": "Italy"
+      },
+      "name": "Serie A",
+      "code": "SA",
+      "plan": "TIER_ONE",
+      "lastUpdated": "2021-04-17T07:19:44Z"
+    },
+    {
+      "id": 2122,
+      "area": {
+        "id": 2114,
+        "name": "Italy"
+      },
+      "name": "Coppa Italia",
+      "code": "CIT",
+      "plan": "TIER_THREE",
+      "lastUpdated": "2021-02-11T16:30:06Z"
+    }
+  ],
+  "name": "ACF Fiorentina",
+  "shortName": "Fiorentina",
+  "tla": "FIO",
+  "crestUrl": "https://crests.football-data.org/99.svg",
+  "address": "Viale Manfredo Fanti 4 Firenze 50137",
+  "phone": "+39 (055) 5030190",
+  "website": "http://www.acffiorentina.it",
+  "email": "segreteria@acffiorentina.it",
+  "founded": 1926,
+  "clubColors": "Purple / White",
+  "venue": "Stadio Artemio Franchi",
+  "squad": [
+    {
+      "id": 11,
+      "name": "Álvaro Odriozola",
+      "position": "Defender",
+      "dateOfBirth": "1995-12-14T00:00:00Z",
+      "countryOfBirth": "Spain",
+      "nationality": "Spain",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 1750,
+      "name": "Giacomo Bonaventura",
+      "position": "Midfielder",
+      "dateOfBirth": "1989-08-22T00:00:00Z",
+      "countryOfBirth": "Italy",
+      "nationality": "Italy",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 1768,
+      "name": "Michele Cerofolini",
+      "position": "Goalkeeper",
+      "dateOfBirth": "1999-01-04T00:00:00Z",
+      "countryOfBirth": "Italy",
+      "nationality": "Italy",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 1775,
+      "name": "Nikola Milenković",
+      "position": "Defender",
+      "dateOfBirth": "1997-10-12T00:00:00Z",
+      "countryOfBirth": "Serbia",
+      "nationality": "Serbia",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 1776,
+      "name": "Cristiano Biraghi",
+      "position": "Defender",
+      "dateOfBirth": "1992-09-01T00:00:00Z",
+      "countryOfBirth": "Italy",
+      "nationality": "Italy",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 1782,
+      "name": "Riccardo Saponara",
+      "position": "Midfielder",
+      "dateOfBirth": "1991-12-21T00:00:00Z",
+      "countryOfBirth": "Italy",
+      "nationality": "Italy",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 1784,
+      "name": "Marco Benassi",
+      "position": "Midfielder",
+      "dateOfBirth": "1994-09-08T00:00:00Z",
+      "countryOfBirth": "Italy",
+      "nationality": "Italy",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 1792,
+      "name": "Riccardo Sottil",
+      "position": "Attacker",
+      "dateOfBirth": "1999-06-03T00:00:00Z",
+      "countryOfBirth": "Italy",
+      "nationality": "Italy",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 1867,
+      "name": "Erick Pulgar",
+      "position": "Midfielder",
+      "dateOfBirth": "1994-01-15T00:00:00Z",
+      "countryOfBirth": "Chile",
+      "nationality": "Chile",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 2104,
+      "name": "José Callejón",
+      "position": "Attacker",
+      "dateOfBirth": "1987-02-11T00:00:00Z",
+      "countryOfBirth": "Spain",
+      "nationality": "Spain",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 2194,
+      "name": "Alfred Duncan",
+      "position": "Midfielder",
+      "dateOfBirth": "1993-03-10T00:00:00Z",
+      "countryOfBirth": "Ghana",
+      "nationality": "Ghana",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 2260,
+      "name": "Lucas Torreira",
+      "position": "Midfielder",
+      "dateOfBirth": "1996-02-11T00:00:00Z",
+      "countryOfBirth": "Uruguay",
+      "nationality": "Uruguay",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 2310,
+      "name": "Lorenzo Venuti",
+      "position": "Defender",
+      "dateOfBirth": "1995-04-12T00:00:00Z",
+      "countryOfBirth": "Italy",
+      "nationality": "Italy",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 2476,
+      "name": "Pietro Terracciano",
+      "position": "Goalkeeper",
+      "dateOfBirth": "1990-03-08T00:00:00Z",
+      "countryOfBirth": "Italy",
+      "nationality": "Italy",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 2577,
+      "name": "Antonio Rosati",
+      "position": "Goalkeeper",
+      "dateOfBirth": "1983-03-26T00:00:00Z",
+      "countryOfBirth": "Italy",
+      "nationality": "Italy",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 2676,
+      "name": "Gaetano Castrovilli",
+      "position": "Midfielder",
+      "dateOfBirth": "1997-02-17T00:00:00Z",
+      "countryOfBirth": "Italy",
+      "nationality": "Italy",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 3433,
+      "name": "Matija Nastasić",
+      "position": "Defender",
+      "dateOfBirth": "1993-03-28T00:00:00Z",
+      "countryOfBirth": "Serbia",
+      "nationality": "Serbia",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 3705,
+      "name": "Sofyan Amrabat",
+      "position": "Midfielder",
+      "dateOfBirth": "1996-08-21T00:00:00Z",
+      "countryOfBirth": "Netherlands",
+      "nationality": "Morocco",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 10777,
+      "name": "Igor",
+      "position": "Defender",
+      "dateOfBirth": "1998-02-07T00:00:00Z",
+      "countryOfBirth": "Brazil",
+      "nationality": "Brazil",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 45680,
+      "name": "Nicolás González",
+      "position": "Attacker",
+      "dateOfBirth": "1998-04-06T00:00:00Z",
+      "countryOfBirth": "Argentina",
+      "nationality": "Argentina",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 49454,
+      "name": "Aleksandr Kokorin",
+      "position": "Attacker",
+      "dateOfBirth": "1991-03-19T00:00:00Z",
+      "countryOfBirth": "Russia",
+      "nationality": "Russia",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 57805,
+      "name": "Youssef Maleh",
+      "position": "Midfielder",
+      "dateOfBirth": "1998-08-22T00:00:00Z",
+      "countryOfBirth": "Italy",
+      "nationality": "Italy",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 73064,
+      "name": "Aleksa Terzić",
+      "position": "Defender",
+      "dateOfBirth": "1999-08-17T00:00:00Z",
+      "countryOfBirth": "Serbia",
+      "nationality": "Serbia",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 82002,
+      "name": "Dušan Vlahović",
+      "position": "Attacker",
+      "dateOfBirth": "2000-01-28T00:00:00Z",
+      "countryOfBirth": "Serbia",
+      "nationality": "Serbia",
+      "shirtNumber": null,
+      "role": "PLAYER"
+    },
+    {
+      "id": 170386,
+      "name": "Tòfol Montiel",
+      "position": null,
+      "dateOfBirth": "2000-04-11T00:00:00Z",
+      "countryOfBirth": null,
+      "nationality": null,
+      "shirtNumber": null,
+      "role": null
+    },
+    {
+      "id": 170382,
+      "name": "Bartlomiej Dragowski",
+      "position": null,
+      "dateOfBirth": "1997-08-19T00:00:00Z",
+      "countryOfBirth": null,
+      "nationality": null,
+      "shirtNumber": null,
+      "role": null
+    },
+    {
+      "id": 169309,
+      "name": "Lucas Martínez Quarta",
+      "position": null,
+      "dateOfBirth": "1996-05-10T00:00:00Z",
+      "countryOfBirth": null,
+      "nationality": null,
+      "shirtNumber": null,
+      "role": null
+    }
+  ],
+  "lastUpdated": "2020-11-26T02:23:02Z"
+}

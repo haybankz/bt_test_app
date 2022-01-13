@@ -17,7 +17,7 @@ class MatchRepositoryImpl implements MatchRepository {
 
   @override
   Future<NetworkResponse<MatchesDto>> fetchMatches(int competitionId) async {
-    if (await networkInfo.isConnected) {
+    if (await networkInfo.isConnected()) {
       try {
         final response =
             await matchRemoteDataSource.fetchMatches(competitionId);

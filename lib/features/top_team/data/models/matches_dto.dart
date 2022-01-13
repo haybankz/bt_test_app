@@ -2,11 +2,9 @@
 //
 //     final matchesDto = matchesDtoFromJson(jsonString);
 
-import 'dart:convert';
-
 import 'package:equatable/equatable.dart';
 
-class MatchesDto {
+class MatchesDto extends Equatable {
   MatchesDto({
     this.count,
     this.filters,
@@ -35,6 +33,10 @@ class MatchesDto {
             ? matches!.map((match) => match.toJson()).toList()
             : null,
       };
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [matches];
 }
 
 class Competition {
@@ -361,4 +363,3 @@ class EnumValues<T> {
     return reverseMap;
   }
 }
-

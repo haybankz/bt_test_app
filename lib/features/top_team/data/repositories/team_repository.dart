@@ -18,7 +18,7 @@ class TeamRepositoryImpl implements TeamRepository {
 
   @override
   Future<NetworkResponse<TeamDto>> getTeam(int teamId) async {
-    if (await networkInfo.isConnected) {
+    if (await networkInfo.isConnected()) {
       try {
         final response = await teamRemoteDataSource.getTeam(teamId);
         return NetworkResponse<TeamDto>.success(response);
